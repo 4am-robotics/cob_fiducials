@@ -58,6 +58,8 @@
 
 // ROS includes
 #include <ros/ros.h>
+#include <diagnostic_updater/diagnostic_updater.h>
+#include <diagnostic_updater/publisher.h>
 //#include <nodelet/nodelet.h>
 #include <image_transport/image_transport.h>
 #include <image_transport/subscriber_filter.h>
@@ -184,6 +186,9 @@ private:
     ros::Timer tf_pub_timer_;
     tf::StampedTransform marker_tf_;
 
+    diagnostic_updater::Updater diagnostic_updater_;
+    ros::Timer diagnostic_timer_;
+
 public:
     /// Constructor.
     CobFiducialsNode(ros::NodeHandle& nh)
@@ -194,6 +199,12 @@ public:
         camera_matrix_initialized_ = false;
         /// Void
         node_handle_ = nh;
+
+        // Diagnostics
+        diagnostic_updater_.setHardwareID("none");
+        diagnostic_updater_.add("Heartbeat", this, &ipa_Fiducials::CobFiducialsNode::produce_diagnostics);
+        diagnostic_timer_ = nh.createTimer(ros::Duration(1.0), &ipa_Fiducials::CobFiducialsNode::diagnosticTimerCallback, this);
+
         onInit();
     }
 
@@ -1027,6 +1038,16 @@ public:
         //launch_reconfigure_config_.preFilterCap = StereoPreFilterCap_;
 
         return ipa_Utils::RET_OK;
+    }
+
+    void produce_diagnostics(diagnostic_updater::DiagnosticStatusWrapper &stat)
+    {
+        stat.summary(diagnostic_msgs::DiagnosticStatus::OK, "Alive");
+    }
+
+    void diagnosticTimerCallback(const ros::TimerEvent &event)
+    {
+        diagnostic_updater_.update();
     }
 };
 
