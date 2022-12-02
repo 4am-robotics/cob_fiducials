@@ -5,6 +5,8 @@ set(catkin_RUN_PACKAGES
   cob_object_detection_msgs
   cob_vision_utils
   cv_bridge
+  diagnostic_msgs
+  diagnostic_updater
   image_transport
   roscpp
   sensor_msgs
