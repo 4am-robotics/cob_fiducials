@@ -1,6 +1,6 @@
 cob_fiducials
 ===========
 
-## Travis - Continuous Integration
+## GitHub Actions - Continuous Integration
 
-Status: [![Build Status](https://travis-ci.com/ipa320/cob_fiducials.svg?branch=kinetic-devel)](https://travis-ci.com/github/ipa320/cob_fiducials)
+CI-Status ```kinetic-devel```: [![GHA CI](https://github.com/4am-robotics/cob_fiducials/actions/workflows/main.yml/badge.svg?branch=kinetic-devel)](https://github.com/4am-robotics/cob_fiducials/actions/workflows/main.yml?query=branch%3Akinetic-devel)
