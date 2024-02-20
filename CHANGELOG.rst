@@ -2,8 +2,8 @@
 Changelog for package cob_fiducials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2024-02-20)
+------------------
 * Merge pull request `#8 <https://github.com/4am-robotics/cob_fiducials/issues/8>`_ from fmessmer/ci/gha
   migrate ci to gha
 * migrate ci to gha

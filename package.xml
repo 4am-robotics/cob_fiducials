@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>cob_fiducials</name>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 
   <description>
     Fiducial recognition. Implementation of different 2D tags like PI-tag from Bergamasco et al. for recognition with a single 2D camera.
